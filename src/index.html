@@ -1,13 +1,74 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- San Andreas State Template (beta) Based on Twitter Bootstrap and CA-web template-->
   <meta charset="utf-8">
   <title>SangovAngular</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Meta Group-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Author" content="State of San Andreas" />
+    <meta name="Description" content="State of San Andreas" />
+    <meta name="Keywords" content="San Andreas, government" />
+    <!-- Use highest compatibility mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- http://t.co/dKP3o1e -->
+    <meta name="HandheldFriendly" content="True">
+    <!-- for Blackberry, AvantGo -->
+    <meta name="MobileOptimized" content="320">
+    <!-- for Windows mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+  <!--Icons, CSS, JS-->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="/assets/css/cagov.core.css">
+  <link rel="stylesheet" href="/assets/css/colorscheme-oceanside.css">
+  <link rel="apple-touch-icon-precomposed" sizes="100x100" href="/assets/images/apple-touch-icon-precomposed.png">
+  <link rel="icon" sizes="192x192" href="/assets/images/apple-touch-icon-192x192.png">
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/assets/images/apple-touch-icon-180x180.png">
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon-precomposed" href="/assets/images/apple-touch-icon-57x57.png">
+  <link rel="shortcut icon" href="/assets/images/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    //statewide GA property
+    gtag('config', 'UA-3419582-2');
+    //please update state department UA code in line below before deployment
+    gtag('config', 'UA-xxxxxx-xx');
+    //un-comment line below and update UA code to add a third GA property
+    //gtag('config', 'UA-xxxxxx-xx');
+
+    var getOutboundLink = function (url) {
+      gtag('event', 'click', {
+        'event_category': 'navigation',
+        'event_label': 'outbound link: ' + url,
+        'transport_type': 'beacon',
+        'event_callback': function () { document.location = url; }
+      });
+    }
+
+    var trackDownload = function (filename) {
+      gtag('event', 'click', {
+        'event_category': 'download',
+        'event_label': 'file: ' + filename,
+        'transport_type': 'beacon',
+        'event_callback': function () { document.location = url; }
+      });
+    }
+  </script>
 </head>
 <body>
   <app-root></app-root>
+  <script src="assets/js/cagov.core.js"></script>
 </body>
 </html>
